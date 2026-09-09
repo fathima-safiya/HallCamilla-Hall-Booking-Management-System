@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-container": "#745c00",
+                    "outline": "#717973",
+                    "on-secondary-fixed": "#241a00",
+                    "tertiary-fixed": "#e4e2e1",
+                    "primary-fixed-dim": "#a0d1b8",
+                    "on-primary-fixed-variant": "#204f3c",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#1c1c1c",
+                    "secondary": "#735c00",
+                    "outline-variant": "#c0c9c2",
+                    "primary-fixed": "#bbeed3",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#9a9998",
+                    "primary": "#002215",
+                    "surface-bright": "#f9faf6",
+                    "surface": "#f9faf6",
+                    "on-primary-fixed": "#002114",
+                    "on-primary-container": "#73a48c",
+                    "surface-variant": "#e2e3df",
+                    "secondary-container": "#fed65b",
+                    "on-surface": "#1a1c1a",
+                    "background": "#f9faf6",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-dim": "#d9dad7",
+                    "error": "#ba1a1a",
+                    "secondary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#574500",
+                    "inverse-on-surface": "#f0f1ee",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "tertiary-container": "#313131",
+                    "surface-tint": "#396752",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e7e8e5",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "primary-container": "#043927",
+                    "surface-container": "#edeeeb",
+                    "surface-container-highest": "#e2e3df",
+                    "surface-container-low": "#f3f4f0",
+                    "inverse-surface": "#2e312f",
+                    "on-surface-variant": "#414944",
+                    "on-background": "#1a1c1a",
+                    "inverse-primary": "#a0d1b8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-lg": "48px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "stack-md": "24px",
+                    "container-max-width": "1440px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl-mobile": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-xl": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-border {
+            border: 1px solid #E5D291;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/80 dark:bg-primary/80 backdrop-blur-xl border-b border-secondary-container/20 shadow-sm docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max-width mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">
+                Camilla Banquet Hotel
+            </div>
+<div class="hidden md:flex items-center gap-stack-md">
+<a class="text-primary dark:text-primary-fixed border-b-2 border-secondary font-bold pb-1 font-label-caps text-label-caps uppercase tracking-wider" href="#">Home</a>
+<a class="text-on-surface-variant dark:text-on-primary-container/70 font-medium hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-wider" href="#">Halls</a>
+<a class="text-on-surface-variant dark:text-on-primary-container/70 font-medium hover:text-primary transition-colors font-label-caps text-label-caps uppercase tracking-wider" href="#">My Bookings</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-secondary transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-secondary transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Luxury Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Grand Ballroom Interior" class="w-full h-full object-cover" data-alt="A wide-angle interior photograph of a lavish, high-ceilinged banquet hall with crystal chandeliers casting a warm golden glow. The space features large emerald velvet curtains and white linen-covered tables arranged for a gala. Soft sunlight streams through high windows, creating a bright and airy modern luxury aesthetic consistent with a prestigious hotel lobby. The palette is dominated by deep emerald greens and shimmering gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyAQA8V3_P47dL_Q2xocBEkCM6ioI0Ur8UHztP4G9UnrhRT0Xtn6cDqTz_tEUj2idx4R2JJtTntDXfATyHpumRVkdbQRjeXA3xpDo9SELh7j_A7eAiquDQBSzXOq9Uw-i0C5YhFo2WSR_G3bSgahVl7Q6rppwguZv4d1XV7imZALvdA1kIm-B0U6YFd8octIuhW9sKP4sI9lu8C8apH98--MWkTfTAW1UFRAadISnzbHD37egvkBSILRGIOcPZlhA_XPqXChghE1M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl">
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest mb-4 block">Exquisite Events &amp; Celebrations</span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-8">Celebrate in Grandeur</h1>
+<p class="font-body-lg text-body-lg text-on-primary/90 mb-stack-lg max-w-2xl mx-auto">Discover a sanctuary of elegance in Kurunegala, where timeless luxury meets impeccable service for your most precious moments.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg font-label-caps text-label-caps uppercase tracking-widest hover:shadow-[inset_0_0_0_2px_#E5D291] transition-all duration-300">Browse Our Halls</button>
+<button class="border-[1.5px] border-primary text-primary bg-white/10 backdrop-blur-md px-8 py-4 rounded-lg font-label-caps text-label-caps uppercase tracking-widest hover:bg-white/20 transition-all">Check Availability</button>
+</div>
+</div>
+</section>
+<!-- Featured Halls -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Our Signature Spaces</h2>
+<div class="w-24 h-1 bg-secondary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Camilla Grand Hall -->
+<div class="group bg-white gold-border rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Camilla Grand Hall" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious grand banquet hall at ground level with white marble floors and ornate gold-leaf wall panels. Hundreds of elegant chairs surround white tables decorated with emerald silk runners and tall floral centerpieces. The lighting is high-key and sophisticated, highlighting the massive space and premium architectural details of the Camilla Grand Hall. The mood is one of timeless, prestigious celebration." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqE8F5P3_Cu9uPJguffiKMx6FCbYuxIZkV2aS6IY9CsFnWWtknkWq2jNK8D5uVvfZIam_yOjqPrRu9D59mMmkBGlhOHkzcEPHQndpIzVwPqFLQu6Jbigdqkn6BK9exYdPWc_5Z5GWAN37GIikuLMOCG4n3N9IuxJlPac3sjwFwJK9Z8OkhKJEkEcsDqe2zbr2arffBccbP4ewaq9rC2sIejSAFDIhsjOsGKAcNol14u8SW7Sxel4R--_EP-9bd1Otu8yFFkwNn4zyq"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-4 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-tighter">Ground Floor</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Camilla Grand Hall</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Designed for grand celebrations, featuring an expansive floor plan and classical architectural elegance.</p>
+<div class="flex items-center gap-6 text-outline mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="groups">groups</span>
+<span class="font-label-caps text-label-caps">700 Guests</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="square_foot">square_foot</span>
+<span class="font-label-caps text-label-caps">8,500 Sq Ft</span>
+</div>
+</div>
+<button class="w-full py-3 border border-secondary text-secondary font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all">View Details</button>
+</div>
+</div>
+<!-- Camilla Sky Hall -->
+<div class="group bg-white gold-border rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2">
+<div class="aspect-[16/10] overflow-hidden relative">
+<img alt="Camilla Sky Hall" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern, minimalist upper-floor banquet hall with floor-to-ceiling glass windows overlooking a lush garden. The interior features contemporary gold light fixtures and deep emerald accent walls. The space is filled with natural daylight, creating a bright, ethereal atmosphere suitable for intimate weddings. The design incorporates clean lines and glassmorphic elements, reflecting a high-end concierge aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6FiMpQmfgY_MtcK0LzqZVWoEutiTWyq0vCVea_M3PrZ9UyfB_P6ye1Ud9w7FN1cY7FUkHQwELPqDiT0DuiExjPD2oyd5Efo9ZZaTQLqv5I5GmTBJpq_B2KF3CsnIwnA8KN9mqfQ7UgVMpy-JY7eth4JPH6UL_LxoxJL0e3JKbcd1J5JZWT-ZmLLZesOIDn9G5ddXTtLy-3HFWN_qQ9W7lTiN0fb30XCC8x2Y-wxngwGpcGNL50Pophbna1oZl_VsJu4DK93lt5wWo"/>
+<div class="absolute top-4 right-4 bg-primary text-on-primary px-4 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-tighter">Upper Floor</div>
+</div>
+<div class="p-stack-md">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Camilla Sky Hall</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">An intimate setting with panoramic views, perfect for boutique weddings and corporate seminars.</p>
+<div class="flex items-center gap-6 text-outline mb-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="groups">groups</span>
+<span class="font-label-caps text-label-caps">350 Guests</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="square_foot">square_foot</span>
+<span class="font-label-caps text-label-caps">4,200 Sq Ft</span>
+</div>
+</div>
+<button class="w-full py-3 border border-secondary text-secondary font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-all">View Details</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us: Bento Grid Style -->
+<section class="bg-surface-container py-stack-lg">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<div class="text-center mb-stack-lg">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Our Excellence</span>
+<h2 class="font-headline-md text-headline-md text-primary mt-2">Why Camilla Banquet Hotel?</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-primary p-stack-md rounded-lg flex flex-col justify-end relative overflow-hidden group">
+<img alt="Gourmet Catering" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="A close-up shot of exquisitely plated gourmet cuisine being prepared for a banquet. The scene features fine china, polished silverware, and delicate garnishes, lit by soft, warm spotlights. The aesthetic is high-end culinary art, using a professional lighting setup that emphasizes textures and colors. The background remains dark to make the vibrant ingredients and elegant plating stand out as a symbol of luxury hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAb6fYXhhGEGYmG3vm0gjxkrrCawcMMkeIjo2nX4ouh5NpgFREvdbtE-d9ZNVTJ59AyI7dAfXc2H5W6hMHPPz4-KrksVuygs1__UK89i7nrO1VPuY1oUa58QIlgiXAzwABhVcouIvfF57N__auvoK7tZgVITsav7WFdDS5-r9nV6xMTjG33U1FHdapnC6AjVifaZy3fMxM-vrtd5A1-4M-tr9Zok8E3anJvpm9b-NGPXioGM_o5qiUfNUp5y4jEFtlAcv2Ib6DoMZEs"/>
+<div class="relative z-10">
+<h4 class="font-headline-md text-headline-md text-on-primary mb-2">Exquisite Catering</h4>
+<p class="font-body-md text-body-md text-on-primary/70">A culinary journey curated by master chefs, blending local heritage with international finesse.</p>
+</div>
+</div>
+<div class="md:col-span-2 bg-white gold-border p-stack-md rounded-lg flex items-center gap-6">
+<div class="bg-secondary/10 p-4 rounded-full">
+<span class="material-symbols-outlined text-secondary scale-150" data-icon="ac_unit">ac_unit</span>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-1">Climate Controlled</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Centralized high-capacity AC systems ensuring guest comfort through all seasons.</p>
+</div>
+</div>
+<div class="md:col-span-1 bg-white gold-border p-stack-md rounded-lg flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-4 scale-125" data-icon="photo_camera">photo_camera</span>
+<h4 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-1">Photography</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-snug">In-house studio partners for capturing memories.</p>
+</div>
+<div class="md:col-span-1 bg-white gold-border p-stack-md rounded-lg flex flex-col justify-center text-center">
+<span class="material-symbols-outlined text-secondary mb-4 scale-125" data-icon="palette">palette</span>
+<h4 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-1">Artful Decor</h4>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-snug">Custom floral and stage designs tailored to your vision.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Process -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-md text-headline-md text-primary">Your Journey to a Perfect Event</h2>
+</div>
+<div class="relative">
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-secondary-container -translate-y-1/2 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative z-10">
+<div class="bg-background text-center px-4">
+<div class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-background">
+<span class="font-headline-md text-headline-md">1</span>
+</div>
+<h5 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-2">Select Hall</h5>
+<p class="font-body-md text-[14px] text-on-surface-variant">Choose from Grand or Sky Hall based on your guest list.</p>
+</div>
+<div class="bg-background text-center px-4">
+<div class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-background">
+<span class="font-headline-md text-headline-md">2</span>
+</div>
+<h5 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-2">Check Dates</h5>
+<p class="font-body-md text-[14px] text-on-surface-variant">Verify availability for your preferred wedding or event date.</p>
+</div>
+<div class="bg-background text-center px-4">
+<div class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-background">
+<span class="font-headline-md text-headline-md">3</span>
+</div>
+<h5 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-2">Customize</h5>
+<p class="font-body-md text-[14px] text-on-surface-variant">Personalize your catering menu and decor packages.</p>
+</div>
+<div class="bg-background text-center px-4">
+<div class="w-16 h-16 bg-primary text-on-primary rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-background">
+<span class="font-headline-md text-headline-md">4</span>
+</div>
+<h5 class="font-label-caps text-label-caps text-primary uppercase font-bold mb-2">Secure Booking</h5>
+<p class="font-body-md text-[14px] text-on-surface-variant">Confirm your reservation with a secure payment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="bg-primary py-stack-lg overflow-hidden relative">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-secondary/10 rounded-full blur-[100px]"></div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto relative z-10">
+<div class="text-center mb-stack-lg">
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-widest">Client Voices</span>
+<h2 class="font-headline-md text-headline-md text-on-primary mt-2">Unforgettable Experiences</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Testimonial 1 -->
+<div class="bg-primary-container border border-secondary/30 p-stack-md rounded-lg transition-transform hover:scale-[1.02]">
+<div class="flex text-secondary-fixed mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary/80 mb-6 italic">"The Camilla Grand Hall was the perfect setting for our wedding. The attention to detail in the decor and the quality of the catering exceeded our expectations."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary">
+<img alt="Sarah Perera" data-alt="A professional studio portrait of a woman in her late 20s with a warm, friendly smile. She is wearing elegant jewelry and a formal silk blouse. The lighting is soft and flattering, with a clean, neutral background that fits the sophisticated aesthetic of a high-end hospitality testimonial. The image reflects a satisfied, elite client who values quality and service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd4K28TCGxXBfeMjR-w6bffuQQkDlmeo32One1yNgYhTLIAM_ewFy7nGmjkS7uaHGnHpVXikO3uDoTrujtrV9oX5AtlTcef3D8WGYEmX2sQnT_2zCsY2tOpX2q4L5CBAeJurDAb2AwdRgY2VxLMB_Io73h-zfQIDDJGCqiS1NJPMsEU18zlN2XHO5sHr5u2EqGX6EZVGiiZ6Zd6f3BNYVAJOB92lyXtHy6GR3WrL8yvXzsJZFW5725qaF1HaQrNtBRybtb-XmBiK3Q"/>
+</div>
+<div>
+<h6 class="font-label-caps text-label-caps text-on-primary uppercase">Sarah Perera</h6>
+<span class="text-[10px] text-secondary-fixed uppercase font-bold">Wedding Booking</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-primary-container border border-secondary/30 p-stack-md rounded-lg transition-transform hover:scale-[1.02]">
+<div class="flex text-secondary-fixed mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary/80 mb-6 italic">"Hosted our annual corporate summit at the Sky Hall. The panoramic views and modern layout provided an inspiring atmosphere for our executive team."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary">
+<img alt="Dinesh Fernando" data-alt="A professional corporate headshot of a middle-aged male executive. He is wearing a dark charcoal suit and a crisp white shirt, exuding confidence and professionalism. The lighting is bright and clear, emphasizing a high-standard corporate look. The background is a blurred office environment with soft light, aligning with the premium service brand of Camilla Hotel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMAkNRHHztaYgMu7BaQdLigXOKbx0XubDKf60_tT9ZH7yScG6_jtodIv0b_bdYNk71b43B6REh4qPMVPm0ad84GSOjLQT4cLuRhW70WfDOCDKXWe-OS73QIJoW1vrfazqZy0h1YVnQPNI8IFtmTeAY-1M2EJjR9veLLiMkNXNMgnZTgObAvGcW5LkXICX0zI72olqLyFThk1mu1IoGGJp8HiV9O8-d2n6hwDCIwUA94BdtNFuWHcFSqwmyXQwZmQmk63fl3KVGzB1B"/>
+</div>
+<div>
+<h6 class="font-label-caps text-label-caps text-on-primary uppercase">Dinesh Fernando</h6>
+<span class="text-[10px] text-secondary-fixed uppercase font-bold">Corporate Event</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-primary-container border border-secondary/30 p-stack-md rounded-lg transition-transform hover:scale-[1.02]">
+<div class="flex text-secondary-fixed mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-primary/80 mb-6 italic">"The staff at Camilla are true professionals. They anticipated every need and made our family celebration completely stress-free."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-secondary">
+<img alt="Malani Wickramasinghe" data-alt="A candid, elegant photograph of an older woman with graceful features and silver-flecked hair. She is smiling warmly at the camera, wearing a traditional silk saree in emerald green. The lighting is soft and golden, suggesting a joyous family celebration environment. The aesthetic is sophisticated and captures a moment of genuine happiness and luxury living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCxg_kNZ1pO7ZZlSTL0J7sr1QaxAtGyPVLKMw7ApRYYE3BLsNDyAikBZh6nmF4WSiyU4xp-iSX4gu1k9afWX38QxFV4hQHqESRr6WSG7qvDrgGq6tRvD2DGsnaP3CMEbJR0HkmqznfavQqLeWxh6y4OHri2xYBulNzbIe6f4PZ4v2vu0xs54MDqwC1Z1weO-WIOTlTWfyEiqjp7UI-4L0375kRyJck3zW2ZDFxqvlohGNSCI6HdwA4AnYsypkrkuwowYfvCrBre-6h"/>
+</div>
+<div>
+<h6 class="font-label-caps text-label-caps text-on-primary uppercase">Malani Wickramasinghe</h6>
+<span class="text-[10px] text-secondary-fixed uppercase font-bold">Family Celebration</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container w-full mt-stack-lg border-t border-secondary/30">
+<div class="w-full py-12 px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-container-max-width mx-auto">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-secondary-fixed">Camilla Banquet Hotel</div>
+<p class="font-body-md text-body-md text-on-primary/70 dark:text-on-primary-container/70">Elevating celebrations in Kurunegala with a legacy of luxury and unmatched hospitality.</p>
+<div class="flex gap-4 mt-2">
+<a class="text-on-primary/70 hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-on-primary/70 hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined" data-icon="share">share</span></a>
+<a class="text-on-primary/70 hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined" data-icon="mail">mail</span></a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-caps text-label-caps text-secondary-fixed uppercase font-bold">Quick Links</h6>
+<div class="flex flex-col gap-2">
+<a class="text-on-primary/70 dark:text-on-primary-container/70 hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#">Contact Info</a>
+<a class="text-on-primary/70 dark:text-on-primary-container/70 hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#">Privacy Policy</a>
+<a class="text-on-primary/70 dark:text-on-primary-container/70 hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#">Terms of Service</a>
+<a class="text-on-primary/70 dark:text-on-primary-container/70 hover:text-secondary transition-colors duration-300 font-label-caps text-label-caps" href="#">Location Map</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h6 class="font-label-caps text-label-caps text-secondary-fixed uppercase font-bold">Newsletter</h6>
+<p class="font-body-md text-body-md text-on-primary/70 dark:text-on-primary-container/70">Join our mailing list for exclusive event packages and updates.</p>
+<div class="flex items-center border border-on-primary/20 rounded-lg p-1">
+<input class="bg-transparent border-none focus:ring-0 text-on-primary text-body-md w-full px-3" placeholder="Email Address" type="email"/>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded font-label-caps text-label-caps uppercase">Join</button>
+</div>
+</div>
+</div>
+<div class="border-t border-secondary/10 py-6 text-center">
+<p class="font-body-md text-body-md text-on-primary/50 dark:text-on-primary-container/50">© 2024 Camilla Banquet Hotel. Kurunegala, Sri Lanka.</p>
+</div>
+</footer>
+</body></html>

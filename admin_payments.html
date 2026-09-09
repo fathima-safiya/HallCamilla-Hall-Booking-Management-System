@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Tracking | Camilla Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d9dad7",
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeeeb",
+                        "on-secondary-container": "#745c00",
+                        "surface-container-high": "#e7e8e5",
+                        "outline": "#717973",
+                        "surface-bright": "#f9faf6",
+                        "inverse-surface": "#2e312f",
+                        "outline-variant": "#c0c9c2",
+                        "on-secondary-fixed": "#241a00",
+                        "background": "#f9faf6",
+                        "secondary-fixed-dim": "#e9c349",
+                        "primary-container": "#043927",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#396752",
+                        "on-primary-container": "#73a48c",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-background": "#1a1c1a",
+                        "tertiary-fixed": "#e4e2e1",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#9a9998",
+                        "on-surface-variant": "#414944",
+                        "surface": "#f9faf6",
+                        "on-secondary-fixed-variant": "#574500",
+                        "tertiary": "#1c1c1c",
+                        "primary-fixed-dim": "#a0d1b8",
+                        "on-surface": "#1a1c1a",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e2e3df",
+                        "primary": "#002215",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "tertiary-container": "#313131",
+                        "primary-fixed": "#bbeed3",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "secondary-container": "#fed65b",
+                        "surface-container-highest": "#e2e3df",
+                        "on-primary-fixed-variant": "#204f3c",
+                        "surface-container-low": "#f3f4f0",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f0f1ee",
+                        "inverse-primary": "#a0d1b8",
+                        "secondary-fixed": "#ffe088",
+                        "secondary": "#735c00",
+                        "on-primary-fixed": "#002114"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "unit": "8px",
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max-width": "1440px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "headline-xl": ["Playfair Display"],
+                        "headline-xl-mobile": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid #E5D291;
+            box-shadow: 0 30px 60px -12px rgba(4, 57, 39, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-glow:hover {
+            box-shadow: inset 0 0 10px rgba(229, 210, 145, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 h-full w-64 bg-primary-container dark:bg-primary flex flex-col p-4 space-y-stack-md border-r border-outline/20 shadow-lg z-50">
+<div class="mb-8 px-4">
+<h1 class="font-headline-md text-headline-md text-secondary-fixed">Camilla Admin</h1>
+<p class="font-label-caps text-label-caps text-on-primary-container/60 uppercase mt-1">Management Suite</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-label-caps text-label-caps">Hall Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Package Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps">Booking Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Payment Tracking</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+</nav>
+<div class="pt-stack-md border-t border-outline/20 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<div class="flex items-center gap-3 px-4 py-4 mt-4">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary font-bold">JD</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-primary-container">Admin User</span>
+<span class="text-[10px] text-on-primary-container/50">Finance Manager</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen p-margin-desktop bg-surface-bright relative">
+<!-- Header -->
+<header class="flex justify-between items-center mb-stack-lg">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-primary">Payment Tracking</h2>
+<p class="font-body-md text-on-surface-variant mt-2">Real-time oversight of banquet revenues and financial transactions.</p>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-caps text-label-caps flex items-center gap-2 gold-glow transition-all active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Booking
+            </button>
+</header>
+<!-- Summary Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-stack-lg">
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary p-2 bg-primary-fixed/30 rounded-lg">payments</span>
+<span class="text-secondary font-bold font-label-caps">+12.5%</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Total Revenue</p>
+<h3 class="font-headline-md text-headline-md text-primary">$428,500.00</h3>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary p-2 bg-secondary-fixed/30 rounded-lg">pending_actions</span>
+<span class="text-on-surface-variant font-label-caps">Active</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Pending Payments</p>
+<h3 class="font-headline-md text-headline-md text-primary">$84,200.00</h3>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error p-2 bg-error-container/50 rounded-lg">keyboard_return</span>
+<span class="text-error font-bold font-label-caps">-2.1%</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Refunds</p>
+<h3 class="font-headline-md text-headline-md text-primary">$12,450.00</h3>
+</div>
+</section>
+<!-- Secondary Section: Revenue Trend & Filters -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-stack-lg">
+<div class="lg:col-span-2 glass-card p-8 rounded-xl min-h-[300px] flex flex-col justify-between">
+<div class="flex justify-between items-center mb-6">
+<h4 class="font-headline-md text-[24px] text-primary">Revenue Trend</h4>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-primary-fixed/20 text-on-primary-fixed-variant font-label-caps text-[10px] rounded">7 DAYS</span>
+<span class="px-3 py-1 bg-surface-container-high text-on-surface-variant font-label-caps text-[10px] rounded">30 DAYS</span>
+</div>
+</div>
+<!-- Line Chart Visualization (CSS based) -->
+<div class="relative h-48 w-full flex items-end gap-1">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-10">
+<div class="border-b border-primary w-full"></div>
+<div class="border-b border-primary w-full"></div>
+<div class="border-b border-primary w-full"></div>
+</div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[55%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[45%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[65%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[85%] rounded-t-sm"></div>
+<div class="flex-1 bg-gradient-to-t from-primary/10 to-primary/40 h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+<div class="glass-card p-8 rounded-xl bg-primary-container overflow-hidden relative">
+<div class="relative z-10">
+<h4 class="font-headline-md text-[24px] text-secondary-fixed mb-4">Financial Insight</h4>
+<p class="font-body-md text-primary-fixed/80 mb-6">Your collection rate is 15% higher than the same period last quarter. Consider automating final balance reminders for the upcoming wedding season peak.</p>
+<button class="text-secondary-fixed font-label-caps border-b border-secondary-fixed pb-1 hover:text-white transition-colors">Download Report</button>
+</div>
+<!-- Abstract visual element -->
+<div class="absolute -right-10 -bottom-10 w-40 h-40 bg-secondary-fixed/10 rounded-full blur-3xl"></div>
+</div>
+</section>
+<!-- Detailed Transaction Table -->
+<section class="glass-card rounded-xl overflow-hidden mb-stack-lg">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center bg-white/30">
+<h4 class="font-headline-md text-[24px] text-primary">Transaction History</h4>
+<div class="flex items-center gap-stack-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-outline/20 rounded-lg text-body-md focus:ring-1 focus:ring-primary outline-none" placeholder="Search by ID or Customer..." type="text"/>
+</div>
+<button class="p-2 border border-outline/20 rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Transaction ID</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Date</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Customer</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Payment Type</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Amount</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Method</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-primary-fixed/5 transition-colors group">
+<td class="px-6 py-5 font-label-caps text-primary">#TRX-88210</td>
+<td class="px-6 py-5 text-on-surface-variant">Oct 24, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full border border-secondary-fixed/50 object-cover" data-alt="Professional studio portrait of a corporate executive in a light-colored linen suit against a neutral cream background. The lighting is soft and flattering, emphasizing a clean, modern aesthetic suitable for a high-end hospitality administrative portal. The mood is confident and professional, with a warm, welcoming expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-IKLSXoINXlb5DaRSHUGDcqA3dWew1zkAhKGtcW4pm5Otel2neDYTCG2Ec8bwuqKPDdiTkxwt7210iEd6tqSIURPkFK62yj7yJB4UnYP3IuEFR0x4nPUOQ_BUQiCTN5JWSi1r1foQWaD_cmoZGkcnrh4XrxtDXmoMqazoFf7dpJ35Pa8BcPR3MFp_UlIi2DLe3m3MExftF0Mbf11IBjqMqB-Vwb-SkCqacn85V69u97eNm8oGyqlQ6ZceNDshCR5luCvifUIzNcuf"/>
+<span class="font-bold text-primary">Julian Sterling</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-secondary-fixed/20 text-on-secondary-fixed-variant rounded-full text-[11px] font-bold">BALANCE</span>
+</td>
+<td class="px-6 py-5 font-bold text-primary">$12,400.00</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+<span>Visa ending 4421</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    Completed
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="px-6 py-5 font-label-caps text-primary">#TRX-88209</td>
+<td class="px-6 py-5 text-on-surface-variant">Oct 23, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-primary">EH</div>
+<span class="font-bold text-primary">Eleanor Hawthorne</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-primary-fixed/20 text-on-primary-fixed-variant rounded-full text-[11px] font-bold">ADVANCE</span>
+</td>
+<td class="px-6 py-5 font-bold text-primary">$3,500.00</td>
+<td class="px-6 py-5 text-on-surface-variant">Bank Transfer</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                    Processing
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="px-6 py-5 font-label-caps text-primary">#TRX-88208</td>
+<td class="px-6 py-5 text-on-surface-variant">Oct 22, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full border border-secondary-fixed/50 object-cover" data-alt="Close-up portrait of a professional woman with a minimalist and sophisticated style, set against a soft, high-key background. The lighting is diffused and natural, highlighting a clean-cut aesthetic. The overall tone is elegant and high-discerning, perfectly fitting an elite digital service interface for luxury hospitality management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZEiebrKFYoGFifE3al38U5rnfuClmV61Mp-CTN2B8hEjK6KJ-qj1oyyVOTJPF_bDXAR2DiPsfRePRW80bhOvQQUqQETRmUeh5W3H05UQlUaPC5B1xpfNN0_k2HVkg4HQ3v77lk6fzZWUZYk39PWh3tujrKE9o6sWtymyhY2WdpKyWCY3wHereyOb3CKg2-K7QqInvegLES5N1u5__Qt1ExHDlQ6fUvypff564hxag62We_oYdOPXI2l_jtwbyS_7SQeQESFpPTK_9"/>
+<span class="font-bold text-primary">Beatrix Thorne</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-secondary-fixed/20 text-on-secondary-fixed-variant rounded-full text-[11px] font-bold">BALANCE</span>
+</td>
+<td class="px-6 py-5 font-bold text-primary">$18,900.00</td>
+<td class="px-6 py-5 text-on-surface-variant">Amex Express</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                                    Completed
+                                </span>
+</td>
+</tr>
+<tr class="hover:bg-primary-fixed/5 transition-colors">
+<td class="px-6 py-5 font-label-caps text-primary">#TRX-88207</td>
+<td class="px-6 py-5 text-on-surface-variant">Oct 22, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-primary">LW</div>
+<span class="font-bold text-primary">Lawrence Whitlock</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="px-2 py-1 bg-primary-fixed/20 text-on-primary-fixed-variant rounded-full text-[11px] font-bold">ADVANCE</span>
+</td>
+<td class="px-6 py-5 font-bold text-primary">$5,000.00</td>
+<td class="px-6 py-5 text-on-surface-variant">Digital Wallet</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-1 text-error">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                    Failed
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-white/10 flex justify-between items-center">
+<span class="text-on-surface-variant font-label-caps text-[11px]">Showing 4 of 248 transactions</span>
+<div class="flex gap-2">
+<button class="p-2 border border-outline/20 rounded-lg hover:bg-surface-container disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-2 border border-outline/20 rounded-lg hover:bg-surface-container">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-stack-lg pt-stack-md border-t border-secondary/20 flex flex-col md:flex-row justify-between items-center gap-4 opacity-70">
+<p class="font-label-caps text-[11px] text-on-surface-variant uppercase">© 2024 Camilla Banquet Hotel. All rights reserved.</p>
+<div class="flex gap-stack-md">
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</footer>
+</main>
+</body></html>

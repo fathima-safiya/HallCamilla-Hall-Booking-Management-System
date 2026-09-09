@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#d9dad7",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeeeb",
+                    "on-secondary-container": "#745c00",
+                    "surface-container-high": "#e7e8e5",
+                    "outline": "#717973",
+                    "surface-bright": "#f9faf6",
+                    "inverse-surface": "#2e312f",
+                    "outline-variant": "#c0c9c2",
+                    "on-secondary-fixed": "#241a00",
+                    "background": "#f9faf6",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary-container": "#043927",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#396752",
+                    "on-primary-container": "#73a48c",
+                    "on-tertiary-fixed": "#1b1c1c",
+                    "on-background": "#1a1c1a",
+                    "tertiary-fixed": "#e4e2e1",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#9a9998",
+                    "on-surface-variant": "#414944",
+                    "surface": "#f9faf6",
+                    "on-secondary-fixed-variant": "#574500",
+                    "tertiary": "#1c1c1c",
+                    "primary-fixed-dim": "#a0d1b8",
+                    "on-surface": "#1a1c1a",
+                    "on-secondary": "#ffffff",
+                    "surface-variant": "#e2e3df",
+                    "primary": "#002215",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "tertiary-container": "#313131",
+                    "primary-fixed": "#bbeed3",
+                    "tertiary-fixed-dim": "#c8c6c6",
+                    "secondary-container": "#fed65b",
+                    "surface-container-highest": "#e2e3df",
+                    "on-primary-fixed-variant": "#204f3c",
+                    "surface-container-low": "#f3f4f0",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1ee",
+                    "inverse-primary": "#a0d1b8",
+                    "secondary-fixed": "#ffe088",
+                    "secondary": "#735c00",
+                    "on-primary-fixed": "#002114"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "unit": "8px",
+                    "margin-mobile": "20px",
+                    "margin-desktop": "64px",
+                    "container-max-width": "1440px",
+                    "gutter": "24px",
+                    "stack-sm": "12px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "label-caps": ["Inter"],
+                    "headline-xl": ["Playfair Display"],
+                    "headline-xl-mobile": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .card-gold-dust {
+            border: 1px solid #E5D291;
+            box-shadow: 0 10px 30px -5px rgba(0, 34, 21, 0.04);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar {
+            transition: height 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-background min-h-screen">
+<!-- Sidebar Navigation (Mandatory Shared Component) -->
+<aside class="fixed left-0 h-full w-64 bg-primary-container flex flex-col p-4 space-y-stack-md border-r border-outline/20 shadow-lg z-50">
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-secondary-fixed">Camilla Admin</h1>
+<p class="font-label-caps text-label-caps text-on-primary-container/60">Management Suite</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">domain</span>
+<span class="font-label-caps text-label-caps">Hall Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-caps text-label-caps">Package Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-label-caps">Booking Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/10 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-caps text-label-caps">Payment Tracking</span>
+</a>
+<!-- Reports is Active -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps">Reports</span>
+</a>
+</nav>
+<div class="mt-auto space-y-2 pt-4 border-t border-outline/10">
+<button class="w-full bg-primary text-white py-3 rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-colors mb-4">
+                New Booking
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-white/5 rounded-lg transition-all text-error" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-label-caps text-label-caps">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 p-margin-desktop max-w-container-max-width">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-stack-lg">
+<div>
+<p class="font-label-caps text-label-caps text-secondary uppercase mb-2">Performance Overview</p>
+<h2 class="font-headline-xl text-headline-xl text-primary">Reports &amp; Analytics</h2>
+</div>
+<button class="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-label-caps text-label-caps hover:shadow-lg transition-all active:scale-95">
+<span class="material-symbols-outlined">download</span>
+                Export Report
+            </button>
+</header>
+<!-- Analytics Grid -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Monthly Revenue Bar Chart -->
+<section class="col-span-8 bg-surface-container-lowest p-stack-md rounded-xl card-gold-dust">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-md text-headline-md text-primary">Monthly Revenue</h3>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 font-label-caps text-label-caps text-on-surface-variant">
+<span class="w-3 h-3 bg-primary rounded-full"></span> This Year
+                        </span>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-4 border-b border-outline-variant/30">
+<!-- Bar Data -->
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-3/4 group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">JAN</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-1/2 group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">FEB</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-5/6 group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">MAR</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-4/6 group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">APR</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-full group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">MAY</span>
+</div>
+<div class="flex flex-col items-center flex-1">
+<div class="w-full bg-primary/10 rounded-t-lg relative group h-40">
+<div class="absolute bottom-0 w-full bg-primary rounded-t-lg h-2/3 group-hover:bg-secondary transition-colors"></div>
+</div>
+<span class="mt-4 font-label-caps text-[10px] text-on-surface-variant">JUN</span>
+</div>
+</div>
+</section>
+<!-- Hall Utilization Donut -->
+<section class="col-span-4 bg-surface-container-lowest p-stack-md rounded-xl card-gold-dust flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-8">Hall Utilization</h3>
+<div class="flex-grow flex flex-col items-center justify-center relative">
+<!-- SVG Donut Chart -->
+<div class="w-48 h-48 relative">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#edeeeb" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#002215" stroke-dasharray="65 35" stroke-dashoffset="0" stroke-width="3"></circle>
+<circle cx="18" cy="18" fill="transparent" r="15.915" stroke="#735c00" stroke-dasharray="35 65" stroke-dashoffset="-65" stroke-width="3"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-md text-headline-md text-primary leading-none">88%</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">Occupancy</span>
+</div>
+</div>
+<div class="mt-8 space-y-3 w-full">
+<div class="flex justify-between items-center px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-body-md text-body-md text-on-surface">Grand Hall</span>
+</div>
+<span class="font-body-md text-body-md font-bold">65%</span>
+</div>
+<div class="flex justify-between items-center px-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-body-md text-body-md text-on-surface">Sky Hall</span>
+</div>
+<span class="font-body-md text-body-md font-bold">35%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Trends Area Chart -->
+<section class="col-span-7 bg-surface-container-lowest p-stack-md rounded-xl card-gold-dust">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary">Booking Trends</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant">6-Month Volume Trend</p>
+</div>
+<span class="text-secondary flex items-center gap-1 font-bold">
+<span class="material-symbols-outlined">trending_up</span>
+                        +12%
+                    </span>
+</div>
+<div class="h-64 w-full relative">
+<!-- Area Chart Visual Mockup -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none">
+<defs>
+<lineargradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#002215" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#002215" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 150 Q 100 100, 200 130 T 400 60 T 600 80 T 800 20 V 200 H 0 Z" fill="url(#areaGradient)"></path>
+<path d="M0 150 Q 100 100, 200 130 T 400 60 T 600 80 T 800 20" fill="none" stroke="#002215" stroke-width="3"></path>
+</svg>
+<div class="absolute bottom-0 left-0 w-full flex justify-between px-2 pt-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">JUL</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">AUG</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">SEP</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">OCT</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">NOV</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant">DEC</span>
+</div>
+</div>
+</section>
+<!-- Top Performing Packages Table -->
+<section class="col-span-5 bg-surface-container-lowest p-stack-md rounded-xl card-gold-dust">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Top Packages</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-outline-variant/30">
+<th class="pb-3 font-label-caps text-label-caps text-on-surface-variant">Package</th>
+<th class="pb-3 font-label-caps text-label-caps text-on-surface-variant text-right">Bookings</th>
+<th class="pb-3 font-label-caps text-label-caps text-on-surface-variant text-right">Revenue</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">celebration</span>
+</div>
+<span class="font-body-md text-body-md font-bold">Royal Wedding</span>
+</div>
+</td>
+<td class="py-4 text-right font-body-md">42</td>
+<td class="py-4 text-right font-body-md font-bold text-primary">$126,000</td>
+</tr>
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">business_center</span>
+</div>
+<span class="font-body-md text-body-md font-bold">Corporate Elite</span>
+</div>
+</td>
+<td class="py-4 text-right font-body-md">28</td>
+<td class="py-4 text-right font-body-md font-bold text-primary">$84,000</td>
+</tr>
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">cake</span>
+</div>
+<span class="font-body-md text-body-md font-bold">Grand Jubilee</span>
+</div>
+</td>
+<td class="py-4 text-right font-body-md">15</td>
+<td class="py-4 text-right font-body-md font-bold text-primary">$37,500</td>
+</tr>
+<tr class="group hover:bg-surface-bright transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container flex items-center justify-center text-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+</div>
+<span class="font-body-md text-body-md font-bold">Luxe Intimate</span>
+</div>
+</td>
+<td class="py-4 text-right font-body-md">12</td>
+<td class="py-4 text-right font-body-md font-bold text-primary">$21,600</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+<!-- Featured Analysis (Asymmetric Highlight) -->
+<section class="mt-stack-lg grid grid-cols-12 gap-gutter items-center bg-primary-container rounded-2xl overflow-hidden relative min-h-[300px]">
+<div class="col-span-7 p-stack-lg z-10 text-white">
+<p class="font-label-caps text-label-caps text-secondary-fixed mb-4">Strategic Insight</p>
+<h2 class="font-headline-xl text-headline-xl mb-6">Revenue Growth Forecast</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container leading-relaxed max-w-lg mb-8">
+                    Based on current booking trends and historical seasonality, we project a 15% increase in banquet hall utilization for Q1 2025. This growth is primarily driven by the 'Royal Wedding' package popularity.
+                </p>
+<div class="flex gap-4">
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-label-caps text-label-caps hover:bg-secondary-fixed transition-colors">
+                        View Detailed Forecast
+                    </button>
+<button class="border border-outline-variant/30 text-white px-6 py-3 rounded-lg font-label-caps text-label-caps hover:bg-white/10 transition-colors">
+                        Compare Years
+                    </button>
+</div>
+</div>
+<div class="col-span-5 absolute right-0 top-0 h-full w-1/2">
+<div class="absolute inset-0 bg-gradient-to-l from-primary-container via-primary-container/20 to-transparent z-10"></div>
+<img class="w-full h-full object-cover" data-alt="A sophisticated data visualization dashboard displayed on a high-resolution sleek tablet resting on a marble surface. The screen shows glowing emerald green and soft gold charts and graphs in a modern luxury interface. Soft ambient morning light illuminates the scene, highlighting the minimalist and premium design aesthetic of the Camilla Banquet brand. The background is a blurred high-end hotel lobby with rich textures of velvet and brass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDULzq5Yan9olOQoxt9scihhk-4VtUsVbs7IHeR2e8XaZsTyjBB7Wi5ZuNRfw52A_Xn0UnRyJwYRxKZw7wwE0gRcHsbt_isysNIHvFfjZ6I7YudhIMgijQA-larayB8b39j2pMN_OUHMFctDyFMrKBVEgcpUtB9cHVmTg4WHNO6GQs-MttdRMtXheUEfzVj0L1ybQ0oxcjqTBreYJXquEKEy6e7HZjcFh0aKxLm8dTl9d7PPs2K-TIdTiV4r75GToxhoK4HOZ4aUmOT"/>
+</div>
+</section>
+</main>
+<!-- Footer (Mandatory Shared Component) -->
+<footer class="w-full mt-stack-lg bg-surface-container-highest flex flex-col md:flex-row justify-between items-start px-margin-desktop py-stack-lg max-w-container-max-width mx-auto border-t border-secondary/20">
+<div class="mb-8 md:mb-0">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Camilla Banquet</h2>
+<p class="text-on-surface-variant max-w-xs font-body-md text-body-md">Refining the art of elite hospitality and seamless celebration management.</p>
+</div>
+<div class="grid grid-cols-2 gap-x-12 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Newsletter</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+</div>
+<div class="mt-8 md:mt-0 pt-8 md:pt-0 border-t md:border-t-0 border-outline-variant/30 w-full md:w-auto">
+<p class="text-on-surface-variant font-body-md text-body-md">© 2024 Camilla Banquet Hotel. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
