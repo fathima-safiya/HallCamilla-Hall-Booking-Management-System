@@ -160,13 +160,13 @@ export default function AdminBookings() {
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-stone-50 border-b border-stone-200 text-[10px] uppercase font-bold text-stone-400 tracking-wider">
-                <th className="p-4 pl-6">Booking ID</th>
-                <th className="p-4">Customer</th>
-                <th className="p-4">Hall & Event</th>
-                <th className="p-4">Date / Guests</th>
-                <th className="p-4">Amount</th>
-                <th className="p-4">Status</th>
-                <th className="p-4 text-right pr-6">Actions</th>
+                <th className="p-4 pl-6 whitespace-nowrap">Booking ID</th>
+                <th className="p-4 whitespace-nowrap">Customer</th>
+                <th className="p-4 min-w-[200px]">Hall & Event</th>
+                <th className="p-4 whitespace-nowrap">Date / Guests</th>
+                <th className="p-4 whitespace-nowrap">Amount</th>
+                <th className="p-4 whitespace-nowrap">Status</th>
+                <th className="p-4 text-right pr-6 whitespace-nowrap">Actions</th>
               </tr>
             </thead>
             <tbody className="text-xs text-stone-700 divide-y divide-stone-100">
@@ -181,16 +181,16 @@ export default function AdminBookings() {
                   return (
                     <Fragment key={booking.id}>
                       <tr className="hover:bg-stone-50/60 transition-colors">
-                        <td className="p-4 pl-6">
+                        <td className="p-4 pl-6 whitespace-nowrap align-top">
                           <p className="font-mono font-bold text-luxury-gold-600">{booking.id}</p>
                           <p className="text-[9px] text-stone-400 mt-0.5">{new Date(booking.createdAt).toLocaleDateString()}</p>
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 whitespace-nowrap align-top">
                           <p className="font-bold text-stone-800">{booking.customerName}</p>
                           <p className="text-[10px] text-stone-400 mt-0.5">{booking.email}</p>
                           <p className="text-[10px] text-stone-400">{booking.phone}</p>
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 align-top">
                           <p className="font-serif font-bold text-luxury-emerald-950">{getHallName(booking.hallId)}</p>
                           <p className="text-[10px] text-stone-500 mt-0.5">
                             {booking.eventType?.toLowerCase() === 'other' ? `Other - ${booking.otherEventType}` : booking.eventName}
@@ -230,7 +230,7 @@ export default function AdminBookings() {
                             </div>
                           ) : null}
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 whitespace-nowrap align-top">
                           <div className="flex items-center gap-1 font-bold text-stone-800">
                             <Calendar size={11} className="text-luxury-gold-600" />
                             {booking.eventDate}
@@ -240,15 +240,15 @@ export default function AdminBookings() {
                             {booking.guestCount} guests
                           </div>
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 whitespace-nowrap align-top">
                           <p className="font-bold text-stone-800">LKR {(booking.totalAmount || 0).toLocaleString()}</p>
                         </td>
-                        <td className="p-4">
+                        <td className="p-4 whitespace-nowrap align-top">
                           <span className={`px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider ${STATUS_STYLES[booking.bookingStatus]}`}>
                             {booking.bookingStatus}
                           </span>
                         </td>
-                        <td className="p-4 pr-6 text-right">
+                        <td className="p-4 pr-6 text-right whitespace-nowrap align-top">
                           <div className="flex items-center justify-end gap-1.5">
                             <button
                               onClick={() => setExpandedRow(expandedRow === booking.id ? null : booking.id)}

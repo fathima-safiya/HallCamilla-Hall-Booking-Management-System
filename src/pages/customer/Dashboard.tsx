@@ -56,19 +56,19 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="pt-32 pb-24 max-w-7xl mx-auto px-6 w-full animate-fade-in">
+    <div className="pt-8 sm:pt-12 pb-16 sm:pb-24 max-w-7xl mx-auto px-4 sm:px-6 w-full animate-fade-in">
       
       {/* Premium Membership Card Header */}
-      <div className="mb-12 flex flex-col lg:flex-row gap-8 items-start lg:items-end">
+      <div className="mb-8 sm:mb-12 flex flex-col lg:flex-row gap-6 sm:gap-8 items-start lg:items-end">
         <div className="flex-grow w-full lg:w-auto">
-          <h1 className="font-serif text-4xl lg:text-5xl font-bold text-luxury-emerald-950 mb-3">
+          <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-luxury-emerald-950 mb-3">
             Welcome Back, {user?.displayName?.split(' ')[0] || user?.email?.split('@')[0] || 'Guest'}
           </h1>
           <p className="text-stone-500">Manage your exclusive reservations and event details.</p>
         </div>
         
         {/* Camilla Prestige Card */}
-        <div className="w-full lg:w-[400px] h-[220px] rounded-2xl relative overflow-hidden shadow-2xl flex-shrink-0 group">
+        <div className="w-full lg:w-[400px] h-[180px] sm:h-[220px] rounded-2xl relative overflow-hidden shadow-2xl flex-shrink-0 group">
           <div className="absolute inset-0 bg-gradient-to-br from-luxury-emerald-950 via-luxury-emerald-900 to-luxury-emerald-950"></div>
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 mix-blend-overlay"></div>
           
@@ -94,18 +94,18 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-8 pb-4 border-b border-stone-200">
-        <h2 className="font-serif text-2xl font-bold text-luxury-emerald-950">My Reservations</h2>
-        <div className="flex gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 sm:mb-8 pb-4 border-b border-stone-200">
+        <h2 className="font-serif text-xl sm:text-2xl font-bold text-luxury-emerald-950">My Reservations</h2>
+        <div className="flex flex-wrap gap-3">
           <Link
             to="/wishlist"
-            className="px-6 py-3 bg-white border-2 border-red-200 text-red-500 font-bold tracking-wider text-xs rounded shadow-sm hover:bg-red-50 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
+            className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white border-2 border-red-200 text-red-500 font-bold tracking-wider text-xs rounded shadow-sm hover:bg-red-50 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
           >
             <Heart size={14} className="fill-red-400" /> MY WISHLIST
           </Link>
           <Link 
             to="/halls"
-            className="px-6 py-3 bg-luxury-gold-500 text-luxury-emerald-950 font-bold tracking-wider text-xs rounded shadow-md hover:bg-luxury-gold-400 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
+            className="px-4 sm:px-6 py-2.5 sm:py-3 bg-luxury-gold-500 text-luxury-emerald-950 font-bold tracking-wider text-xs rounded shadow-md hover:bg-luxury-gold-400 hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2"
           >
             <Star size={14} /> NEW RESERVATION
           </Link>
@@ -129,7 +129,7 @@ export default function Dashboard() {
 
                   return (
                     <>
-                <div className="w-full md:w-72 h-56 md:h-auto relative shrink-0 overflow-hidden bg-stone-100 flex items-center justify-center">
+                <div className="w-full md:w-64 h-44 md:h-auto relative shrink-0 overflow-hidden bg-stone-100 flex items-center justify-center">
                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
                    <div className="absolute bottom-4 left-4 text-white z-20">
                     <span className="text-[10px] font-bold tracking-widest text-luxury-gold-400 uppercase drop-shadow-md">
@@ -139,14 +139,14 @@ export default function Dashboard() {
                   <Crown size={48} className="text-stone-300" />
                 </div>
                 
-                <div className="p-6 md:p-8 flex-grow flex flex-col justify-between relative bg-gradient-to-br from-white to-stone-50">
+                <div className="p-4 sm:p-6 md:p-8 flex-grow flex flex-col justify-between relative bg-gradient-to-br from-white to-stone-50">
                   <div>
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-4">
                       <div>
-                        <h3 className="font-serif text-3xl font-bold text-luxury-emerald-950">{booking.eventName}</h3>
+                        <h3 className="font-serif text-xl sm:text-2xl md:text-3xl font-bold text-luxury-emerald-950 break-words">{booking.eventName}</h3>
                         <p className="text-stone-500 text-sm mt-1">Hall ID: {booking.hallId}</p>
                       </div>
-                      <span className={`px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm ${getStatusBadge(booking.bookingStatus)}`}>
+                      <span className={`self-start px-3 sm:px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-sm whitespace-nowrap ${getStatusBadge(booking.bookingStatus)}`}>
                         {getStatusLabel(booking.bookingStatus)}
                       </span>
                     </div>
