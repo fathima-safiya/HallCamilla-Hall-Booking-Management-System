@@ -71,7 +71,7 @@ HallCamilla is a modern, responsive web-based Banquet and Event Hall Management 
 5. **Launch the Application**:
    Navigate to:
    ```text
-   http://localhost:5173
+   http://localhost:5174
    ```
 
 6. **Build for Production**:
